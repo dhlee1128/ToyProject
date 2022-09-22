@@ -5,7 +5,7 @@ function App() {
    const [hello, setHello] = useState('')
 
     useEffect(() => {
-        axios.get('/main')
+        axios.get('/todoList')
         .then(response => setHello(response.data))
         .catch(error => console.log(error))
     }, []);
