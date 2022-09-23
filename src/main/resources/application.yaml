@@ -22,3 +22,4 @@ spring:
 # mybatis 관련 설정
 mybatis:
   mapper-locations: mapper/*.xml
+  type-aliases-package: com.project.scheduler.dto # type을 쉽게 쓰기 위해서 dto 패키지를 type-aliaes에 설정
