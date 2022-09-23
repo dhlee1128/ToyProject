@@ -4,7 +4,7 @@
 
 <mapper namespace="com.project.scheduler.dao.TodoMapper">
 
-    <select id="getAllTodoList" resultType="HashMap">
+    <select id="getAllTodoList" resultType="TodoDto">
         SELECT * 
         FROM todolist
         WHERE id=1

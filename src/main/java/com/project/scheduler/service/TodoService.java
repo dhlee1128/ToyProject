@@ -15,7 +15,7 @@ public class TodoService {
     @Autowired
     private TodoMapper todoMapper;
 
-    public HashMap<String, Object> getAllTodoList() {
+    public TodoDto getAllTodoList() {
         return todoMapper.getAllTodoList();
     }
     

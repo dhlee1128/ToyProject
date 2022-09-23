@@ -29,8 +29,8 @@ public class TodoController {
     @GetMapping("/todoList")
     // public ResponseEntity<HashMap<String, Object>> getAllTodoList() {
     public String getAllTodoList() {
-        HashMap<String, Object> todoList = todoService.getAllTodoList();
-        return todoList.get("title").toString();
+        TodoDto todoList = todoService.getAllTodoList();
+        return todoList.getTitle();
         // return new ResponseEntity<HashMap<String, Object>>(todoList, HttpStatus.OK);
     }
     

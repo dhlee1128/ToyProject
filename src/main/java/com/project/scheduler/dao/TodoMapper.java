@@ -10,6 +10,6 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface TodoMapper {
 
-    public HashMap<String, Object> getAllTodoList();
+    public TodoDto getAllTodoList();
     
 }
