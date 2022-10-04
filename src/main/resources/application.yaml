@@ -18,6 +18,9 @@ spring:
     data.rest:
         base-path: /api
         detection-strategy: annotated
+    # mvc:
+    #     view.prefix: /WEB-INF/views/
+    #     view.suffix: .jsp
 
 # mybatis 관련 설정
 mybatis:

@@ -21,10 +21,10 @@ public class TodoController {
     @Autowired
     private TodoService todoService;
     
-    @GetMapping("/main")
-    public String getHome() {
-        return "hello spring";
-    }
+    // @GetMapping("/main")
+    // public String getHome() {
+    //     return "hello spring";
+    // }
 
     @GetMapping("/todoList")
     // public ResponseEntity<HashMap<String, Object>> getAllTodoList() {

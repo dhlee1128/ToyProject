@@ -5,15 +5,17 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
 
 import com.project.scheduler.controller.request.LoginRequest;
 import com.project.scheduler.dto.UserDto;
 import com.project.scheduler.service.CommonService;
 
-@RestController
+// @RequiredArgsConstructor
+@Controller
 public class LoginController {
 
     @Autowired
@@ -24,8 +26,18 @@ public class LoginController {
     //     User user = userService.join(request.getName(), request.getPassword());
     //     return Response.success(UserJoinResponse.fromUser(user));
     // }
+
+    @GetMapping("/")
+    public String main(){
+        return "main";
+    }
+
+    @GetMapping("/login")
+    public String login(){
+        return "loginForm";
+    }
     
-    @PostMapping("/login")
+    @PostMapping("/loginGo")
     public Map<String, Object> login(@RequestBody LoginRequest request) {
         Map<String, Object> loginResult = new HashMap<String, Object>();
         try {

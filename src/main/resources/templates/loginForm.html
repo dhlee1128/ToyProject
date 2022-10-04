@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script>
+    $(document).ready(function(){
+        const userId = $("#userId").val();
+        const userPw = $("#userPw").val();
+
+        $("#loginBut").click(function() {
+            if(userId != '' && userPw != '') {
+                loginGo();
+            } else if (userId == '') {
+                console.log('ID를 입력하세요');
+                alert('ID를 입력하세요');
+            } else if (userPw == '') {
+                console.log('비밀번호를 입력하세요');
+                alert('비밀번호를 입력하세요');
+            }
+
+        })
+
+        function loginGo() {
+            const data = {
+                id : userId,
+                password : userPw
+            }
+
+            $.ajax({
+                url: "/login",
+                contentType: "application/json",
+                type: "POST",
+                data: JSON.stringify(data),
+                dataType: "json",
+                async:false,
+                error: function (xhr, status) {
+                  console.log(status);
+                  alert("실패");
+                },
+                success: function (result) {
+                    alert("성공");
+                }
+            });
+
+        };
+        
+    });
+
+</script>
+</head>
+<body>
+    <form action="/loginProcess" method="post">
+        <div>
+            <div>
+                <label for="userId">ID</label>
+                <input type="text" placeholder="id..." id="userId">
+            </div>
+            <div>
+                <label for="userPw">PWD</label>
+                <input type="text" placeholder="id..." id="userPw">
+            </div>
+            <button id="loginBut">login</button>
+        </div>
+    </form>
+
+</body>
+
+
+</html>
