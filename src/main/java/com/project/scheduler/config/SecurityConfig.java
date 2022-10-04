@@ -19,9 +19,9 @@ public class SecurityConfig {
                         .requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll()
                         .mvcMatchers(
                                 HttpMethod.GET,
-                                "/"
-                                // "/login",
-                                // "/join"
+                                "/",
+                                "/login",
+                                "/join"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
