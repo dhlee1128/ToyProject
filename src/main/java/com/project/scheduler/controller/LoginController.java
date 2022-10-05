@@ -14,7 +14,6 @@ import com.project.scheduler.controller.request.LoginRequest;
 import com.project.scheduler.dto.UserDto;
 import com.project.scheduler.service.CommonService;
 
-// @RequiredArgsConstructor
 @Controller
 public class LoginController {
 
