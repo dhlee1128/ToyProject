@@ -1,14 +1,13 @@
-/* input[type=text] {
-    width: 100%;
+input[type=text] {
+    width: 15vw;
+    height: 2vw;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-} */
+}
 
-.basicInput {
-    width: 200px;
-    height: 20px;
-    color: red;
-    padding: 5px;
-    margin: 5px;
+.loginForm {
+    position: absolute;
+    left: 40%;
+    top: 40%;
 }

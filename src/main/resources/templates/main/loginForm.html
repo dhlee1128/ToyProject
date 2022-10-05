@@ -5,16 +5,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- <link rel="stylesheet" type="text/css" href="/css/component.css"> -->
+<link rel="stylesheet" type="text/css" href="/css/component.css">
 
-<!-- <script>
+<script src="/js/lib/jquery-3.6.1.js"></script>
+<script>
     $(document).ready(function(){
-        const userId = $("#userId").val();
-        const userPw = $("#userPw").val();
-
-        $("#loginBut").click(function() {
+        
+        $("#loginButton").click(function() {
+            var userId = $("#userId").val();
+            var userPw = $("#userPw").val();
+            
             if(userId != '' && userPw != '') {
-                loginGo();
+                loginGo(userId, userPw);
             } else if (userId == '') {
                 console.log('ID를 입력하세요');
                 alert('ID를 입력하세요');
@@ -22,17 +24,17 @@
                 console.log('비밀번호를 입력하세요');
                 alert('비밀번호를 입력하세요');
             }
-
         })
 
-        function loginGo() {
+        function loginGo(userId, userPw) {
             const data = {
                 id : userId,
                 password : userPw
             }
 
+            console.log(data);
             $.ajax({
-                url: "/login",
+                url: "/loginGo",
                 contentType: "application/json",
                 type: "POST",
                 data: JSON.stringify(data),
@@ -51,20 +53,20 @@
         
     });
 
-</script> -->
+</script>
 </head>
 <body>
     <form action="/loginProcess" method="post">
-        <div>
+        <div class="loginForm">
             <div>
                 <label for="userId">ID : </label>
-                <input type="text" class="basicInput" placeholder="id..." id="userId">
+                <input type="text" class="basicInput" id="userId">
             </div>
             <div>
                 <label for="userPw">PWD : </label>
-                <input type="text" class="basicInput" placeholder="password..." id="userPw">
+                <input type="text" class="basicInput" id="userPw">
             </div>
-            <button id="loginBut">login</button>
+            <button id="loginButton">login</button>
         </div>
     </form>
 
