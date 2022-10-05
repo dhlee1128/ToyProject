@@ -5,7 +5,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<script>
+<!-- <link rel="stylesheet" type="text/css" href="/css/component.css"> -->
+
+<!-- <script>
     $(document).ready(function(){
         const userId = $("#userId").val();
         const userPw = $("#userPw").val();
@@ -49,18 +51,18 @@
         
     });
 
-</script>
+</script> -->
 </head>
 <body>
     <form action="/loginProcess" method="post">
         <div>
             <div>
-                <label for="userId">ID</label>
-                <input type="text" placeholder="id..." id="userId">
+                <label for="userId">ID : </label>
+                <input type="text" class="basicInput" placeholder="id..." id="userId">
             </div>
             <div>
-                <label for="userPw">PWD</label>
-                <input type="text" placeholder="id..." id="userPw">
+                <label for="userPw">PWD : </label>
+                <input type="text" class="basicInput" placeholder="password..." id="userPw">
             </div>
             <button id="loginBut">login</button>
         </div>

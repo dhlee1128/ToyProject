@@ -26,11 +26,6 @@ public class LoginController {
     //     return Response.success(UserJoinResponse.fromUser(user));
     // }
 
-    @GetMapping("/")
-    public String main(){
-        return "main.html";
-    }
-
     @GetMapping("/login")
     public String login(){
         return "loginForm.html";

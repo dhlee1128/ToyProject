@@ -23,7 +23,8 @@ public class SecurityConfig {
                                 HttpMethod.GET,
                                 "/",
                                 "/login",
-                                "/join"
+                                "/join",
+                                "/resources/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
@@ -43,6 +44,5 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return PasswordEncoderFactories.createDelegatingPasswordEncoder();
     }
-
     
 }
