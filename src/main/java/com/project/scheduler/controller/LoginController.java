@@ -28,12 +28,12 @@ public class LoginController {
 
     @GetMapping("/")
     public String main(){
-        return "main";
+        return "main.html";
     }
 
     @GetMapping("/login")
     public String login(){
-        return "loginForm";
+        return "loginForm.html";
     }
     
     @PostMapping("/loginGo")
