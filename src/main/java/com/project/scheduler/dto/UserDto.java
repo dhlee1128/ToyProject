@@ -12,4 +12,8 @@ public class UserDto {
     private String id;
     private String password;
     private String name;
+    private String code;
+	private String status;
+	private String message;
+	private Object item;
 }

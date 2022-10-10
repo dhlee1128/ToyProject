@@ -9,11 +9,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.project.scheduler.controller.request.LoginRequest;
 import com.project.scheduler.dto.UserDto;
 import com.project.scheduler.service.CommonService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Controller
 public class LoginController {
 
@@ -28,13 +33,21 @@ public class LoginController {
 
     @GetMapping("/login")
     public String login(){
-        return "loginForm.html";
+        System.out.println("login Page를 통과합니다.");
+        return "main/loginForm.html";
     }
     
-    @PostMapping("/loginGo")
-    public Map<String, Object> login(@RequestBody LoginRequest request) {
+    @PostMapping("/member/loginGo")
+    @ResponseBody
+    public Map<String, Object> login(@RequestBody LoginRequest request
+    // , @RequestParam(value = "userId") String userId, 
+    //                                 @RequestParam(value = "userPw") String userPw
+                                    ) 
+    {
+        System.out.println("request : "+request);
         Map<String, Object> loginResult = new HashMap<String, Object>();
         try {
+            System.out.println("login 중 입니다.");
             if (!request.getId().isEmpty() && !request.getPassword().isEmpty()) {
                 BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder(10);
 
@@ -55,6 +68,7 @@ public class LoginController {
         } catch (Exception e) {
             loginResult.put("result", "Error");
             loginResult.put("message", e.getMessage());
+            log.error("ErrorMessage : "+ e.getMessage());
         }
         return loginResult;
     }
