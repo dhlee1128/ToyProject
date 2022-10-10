@@ -27,27 +27,35 @@
         })
 
         function loginGo(userId, userPw) {
-            const data = {
-                id : userId,
-                password : userPw
+            var data = {
+                userId : userId,
+                userPw : userPw
             }
 
-            console.log(data);
+            console.log("data : ", data);
             $.ajax({
-                url: "/loginGo",
-                contentType: "application/json",
+                url: "member/loginGo",
+                contentType: "application/json; charset=utf-8",
                 type: "POST",
+                // dataType: "json",
                 data: JSON.stringify(data),
-                dataType: "json",
                 async:false,
                 error: function (xhr, status) {
-                  console.log(status);
-                  alert("실패");
+                    console.log(status);
+                    alert("실패");
                 },
                 success: function (result) {
+                    console.log("result : ", result);
                     alert("성공");
                 }
             });
+
+            $(document).ajaxSuccess(function(event, request, settings) {
+            if (request.getResponseHeader('REQUIRES_AUTH') === '1') { 
+                console.log("test 성공");
+                window.location = '/'; 
+            } 
+        });
 
         };
         
