@@ -10,5 +10,11 @@
         WHERE id = #{id}
     </select>
 
+    <select id="getUserInfo" parameterType="string" resultType="UserDto">
+        SELECT * 
+        FROM t_member
+        WHERE id = #{id}
+    </select>
+
 
 </mapper>

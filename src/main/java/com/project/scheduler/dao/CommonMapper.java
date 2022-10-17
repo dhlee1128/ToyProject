@@ -8,5 +8,6 @@ import com.project.scheduler.dto.*;
 public interface CommonMapper {
 
     String getPassword(UserDto userDto);
+    UserDto getUserInfo(String id);
     
 }
