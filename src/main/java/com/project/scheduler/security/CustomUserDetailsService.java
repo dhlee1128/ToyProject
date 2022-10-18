@@ -27,7 +27,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 
         UserDto userDto = commonMapper.getUserInfo(username);
 
-        return new User(userDto.getId(), userDto.getPassword(), );
+        return new User(userDto.getId(), userDto.getPassword(), getAuthorities(userDto));
     }
 
     /**
@@ -36,7 +36,7 @@ public class CustomUserDetailsService implements UserDetailsService{
 	 * @return
 	 */
 	private Collection<? extends GrantedAuthority> getAuthorities(UserDto userDto) {
-		String[] userRoles =  convert(userDto.getMemberAuthoritiesMappingList());
+		String[] userRoles = convert(userDto.getMemberAuthoritiesMappingList());
 		Collection<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList(userRoles);
 		return authorities;
 	}
@@ -54,6 +54,7 @@ public class CustomUserDetailsService implements UserDetailsService{
         for (MemberAuthoritiesMapping memberAuthoritiesMapping : list) {
             arrayOfString[index++] = memberAuthoritiesMapping.getMemberAuthoritiesCode().getAuthority(); 
         }
+        
         return arrayOfString; 
     } 
     
